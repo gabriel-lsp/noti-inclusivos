@@ -1,14 +1,14 @@
 # Noti Inclusivos
 
-Noti Inclusivos es un boletín digital educativo orientado a difundir comunicados, orientaciones, capacitaciones, materiales formativos y recursos accesibles dirigidos a docentes, familias, profesionales de apoyo y comunidad educativa vinculada al CREBE "Señor de los Milagros" - Ucayali.
+Noti Inclusivos es un boletín digital educativo que desarrollo como proyecto personal para organizar y difundir comunicados, orientaciones, capacitaciones, materiales formativos y recursos accesibles vinculados a inclusión educativa y atención a la diversidad.
 
-El proyecto busca organizar información relevante de manera clara, accesible y funcional, favoreciendo la comunicación institucional, la sensibilización sobre inclusión educativa y el acceso a recursos de apoyo para la atención a la diversidad.
+El proyecto busca ordenar información relevante de manera clara, accesible y funcional, favoreciendo la sensibilización sobre inclusión educativa y el acceso a recursos de apoyo para docentes, familias, profesionales de apoyo y comunidad educativa.
 
 ## Finalidad del proyecto
 
-La finalidad principal de Noti Inclusivos es servir como espacio digital de difusión educativa. Su uso puede apoyar la circulación de información sobre actividades institucionales, capacitaciones, orientaciones pedagógicas, recursos accesibles, campañas, comunicados y materiales de interés para la comunidad educativa.
+La finalidad principal de Noti Inclusivos es servir como espacio digital de difusión educativa. Su uso puede apoyar la circulación de información sobre actividades formativas, orientaciones pedagógicas, recursos accesibles, campañas, comunicados y materiales de interés educativo.
 
-El boletín no reemplaza los canales formales de comunicación institucional cuando estos sean requeridos. Debe entenderse como un recurso complementario de difusión, orientación y apoyo educativo.
+El boletín no reemplaza los canales formales de comunicación de ninguna institución cuando estos sean requeridos. Debe entenderse como un recurso personal complementario de difusión, orientación y apoyo educativo.
 
 ## Público al que se dirige
 
@@ -28,7 +28,7 @@ Cuando se compartan materiales, enlaces, infografías, videos, flyers, comunicad
 - Recursos accesibles.
 - Infografías y materiales de sensibilización.
 - Enlaces a plataformas o bancos de recursos.
-- Noticias institucionales vinculadas a inclusión educativa.
+- Noticias o publicaciones vinculadas a inclusión educativa.
 - Recomendaciones de uso pedagógico de materiales digitales.
 
 ## Estructura sugerida del repositorio
@@ -57,25 +57,25 @@ noti-inclusivos/
     ├── alcance-comunicacional.md
     ├── fuentes-y-creditos.md
     ├── uso-permitido.md
-    ├── respaldo-institucional.md
+    ├── autoria-y-contexto.md
     ├── criterios-de-publicacion.md
     ├── estructura-del-proyecto.md
     └── bitacora-de-cambios.md
 ```
 
-La estructura puede ajustarse según el crecimiento real del proyecto. La carpeta `docs` funciona como respaldo documental, organizativo e institucional.
+La estructura puede ajustarse según el crecimiento real del proyecto. La carpeta `docs` funciona como respaldo documental, autoral, técnico y organizativo.
 
 ## Autoría y desarrollo
 
-Proyecto desarrollado y organizado por Gabriel Berrospi como recurso digital educativo de apoyo a la difusión, accesibilidad e inclusión educativa.
+Proyecto desarrollado y organizado por Gabriel Berrospi como recurso digital educativo personal de apoyo a la difusión, accesibilidad e inclusión educativa.
 
-Cuando el recurso sea utilizado dentro de acciones del CREBE "Señor de los Milagros" - Ucayali, debe conservarse el reconocimiento de autoría y la referencia institucional correspondiente, sin que ello implique transferencia de autoría ni uso libre de logos, nombres o materiales institucionales fuera del marco autorizado.
+Cuando el recurso sea utilizado dentro de acciones educativas del CREBE "Señor de los Milagros" - Ucayali u otra institución, dicha referencia debe entenderse como contexto de uso o coordinación, no como transferencia de autoría ni titularidad del proyecto digital.
 
 ## Licencia y uso
 
 El código del repositorio se rige por la licencia incluida en el archivo `LICENSE`. Los textos, imágenes, documentos, logos, flyers, videos o materiales de terceros mantienen sus propias condiciones de uso y deben conservar sus créditos correspondientes.
 
-El proyecto puede ser utilizado con fines educativos, informativos, formativos e institucionales, siempre que se mantenga el reconocimiento de autoría, la finalidad no comercial y la referencia a las fuentes utilizadas.
+El proyecto puede ser utilizado con fines educativos, informativos, formativos y de sensibilización, siempre que se mantenga el reconocimiento de autoría, la finalidad no comercial y la referencia a las fuentes utilizadas.
 
 ## Estado del proyecto
 
@@ -89,7 +89,7 @@ Las siguientes etapas pueden incluir:
 - Revisión de accesibilidad visual y navegación.
 - Registro de fuentes y créditos.
 - Elaboración de una bitácora de cambios.
-- Coordinación del uso institucional del recurso.
+- Coordinación del uso del recurso en contextos educativos autorizados.
 
 ## Contacto
 
