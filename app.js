@@ -13,21 +13,40 @@ function normalizar(texto) {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+function escaparHtml(texto) {
+  return texto
+    .toString()
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
 function crearTarjeta(publicacion) {
   const articulo = document.createElement("article");
   articulo.className = "tarjeta-noti";
 
   const enlaceValido = publicacion.enlace && publicacion.enlace !== "#";
+  const titulo = escaparHtml(publicacion.titulo || "Publicación sin título");
+  const categoria = escaparHtml(publicacion.categoria || "General");
+  const resumen = escaparHtml(publicacion.resumen || "Sin resumen disponible.");
+  const fecha = escaparHtml(publicacion.fecha || "Fecha pendiente");
+  const fuente = escaparHtml(publicacion.fuente || "Fuente institucional");
+  const enlace = escaparHtml(publicacion.enlace || "#");
 
   articulo.innerHTML = `
     <div>
-      <span class="etiqueta-noti">${publicacion.categoria}</span>
-      <h3>${publicacion.titulo}</h3>
-      <p>${publicacion.resumen}</p>
+      <span class="etiqueta-noti">${categoria}</span>
+      <h3>${titulo}</h3>
+      <p>${resumen}</p>
     </div>
     <div>
-      <p class="fecha-noti">${publicacion.fecha}</p>
-      ${enlaceValido ? `<a class="enlace-noti" href="${publicacion.enlace}">Ver recurso</a>` : ""}
+      <div class="meta-noti">
+        <p class="fecha-noti">${fecha}</p>
+        <p class="fuente-noti">${fuente}</p>
+      </div>
+      ${enlaceValido ? `<a class="enlace-noti" href="${enlace}" target="_blank" rel="noopener noreferrer">Ver recurso</a>` : ""}
     </div>
   `;
 
@@ -40,7 +59,8 @@ function mostrarPublicaciones() {
 
   const resultados = publicaciones.filter((publicacion) => {
     const coincideCategoria = categoriaSeleccionada === "todas" || publicacion.categoria === categoriaSeleccionada;
-    const contenido = normalizar(`${publicacion.titulo} ${publicacion.categoria} ${publicacion.resumen}`);
+    const palabras = Array.isArray(publicacion.palabras) ? publicacion.palabras.join(" ") : "";
+    const contenido = normalizar(`${publicacion.titulo} ${publicacion.categoria} ${publicacion.resumen} ${publicacion.fuente || ""} ${palabras}`);
     const coincideBusqueda = contenido.includes(textoBusqueda);
 
     return coincideCategoria && coincideBusqueda;
@@ -63,7 +83,7 @@ function mostrarPublicaciones() {
 }
 
 function cargarCategorias() {
-  const categorias = [...new Set(publicaciones.map((publicacion) => publicacion.categoria))].sort((a, b) => {
+  const categorias = [...new Set(publicaciones.map((publicacion) => publicacion.categoria || "General"))].sort((a, b) => {
     return a.localeCompare(b, "es");
   });
 
@@ -77,7 +97,7 @@ function cargarCategorias() {
 
 async function iniciarNotiInclusivos() {
   try {
-    const respuesta = await fetch("noticias.json");
+    const respuesta = await fetch("noticias.json?v=3");
 
     if (!respuesta.ok) {
       throw new Error("No se pudo cargar noticias.json");
