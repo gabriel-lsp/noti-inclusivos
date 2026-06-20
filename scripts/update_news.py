@@ -11,7 +11,7 @@ QUERIES = [
     "inclusión educativa Perú",
     "MINEDU educación inclusiva",
     "UGEL inclusión educativa discapacidad",
-    "CENAREBA educación inclusiva",
+    "CENAREBE educación inclusiva",
     "TEA educación Perú",
     "braille educación Perú",
     "accesibilidad discapacidad educación Perú",
