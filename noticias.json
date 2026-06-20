@@ -1,83 +1,29 @@
-[
-  {
-    "titulo": "Capacitaciones CREBE 2026",
-    "categoria": "Capacitaciones",
-    "fecha": "2026",
-    "fuente": "CREBE Ucayali",
-    "resumen": "Acceso a las jornadas de capacitación del CREBE, organizadas por fecha y con recursos como videos, flyers, infografías y diapositivas.",
-    "palabras": ["capacitación", "docentes", "inclusión", "educación especial", "CREBE"],
-    "enlace": "https://gabriel-lsp.github.io/capacitaciones-crebe-ucayali/"
-  },
-  {
-    "titulo": "Banco Digital Accesible",
-    "categoria": "Recursos digitales",
-    "fecha": "2026",
-    "fuente": "Tu Zona Inclusiva",
-    "resumen": "Espacio central que organiza recursos digitales accesibles vinculados a Lengua de Señas Peruana, Braille, materiales y juegos educativos.",
-    "palabras": ["accesibilidad", "lengua de señas", "braille", "recursos digitales", "inclusión"],
-    "enlace": "https://gabriel-lsp.github.io/banco-digital-accesible/"
-  },
-  {
-    "titulo": "Materiales Educativos Accesibles",
-    "categoria": "Materiales",
-    "fecha": "2026",
-    "fuente": "Tu Zona Inclusiva",
-    "resumen": "Repositorio de materiales visuales, generadores, pictogramas, rutinas y apoyos pedagógicos para docentes, familias y estudiantes.",
-    "palabras": ["materiales", "pictogramas", "rutinas", "apoyos visuales", "familias"],
-    "enlace": "https://gabriel-lsp.github.io/materiales-educativos-accesibles/"
-  },
-  {
-    "titulo": "Juegos Interactivos Accesibles",
-    "categoria": "Juegos",
-    "fecha": "2026",
-    "fuente": "Tu Zona Inclusiva",
-    "resumen": "Módulo de actividades interactivas para favorecer el aprendizaje mediante retos visuales, lúdicos y accesibles.",
-    "palabras": ["juegos", "aprendizaje", "accesibilidad", "actividades", "estudiantes"],
-    "enlace": "https://gabriel-lsp.github.io/juegos-interactivos-accesibles/"
-  },
-  {
-    "titulo": "Orientaciones para el uso de recursos inclusivos",
-    "categoria": "Orientaciones",
-    "fecha": "2026",
-    "fuente": "CREBE Ucayali",
-    "resumen": "Recomendaciones breves para seleccionar recursos digitales considerando claridad visual, accesibilidad, acompañamiento pedagógico y necesidades del estudiante.",
-    "palabras": ["orientaciones", "docentes", "familias", "accesibilidad", "apoyos educativos"],
-    "enlace": "#"
-  },
-  {
-    "titulo": "Pictogramas y apoyos visuales",
-    "categoria": "Comunicación visual",
-    "fecha": "2026",
-    "fuente": "Material Educativo Accesible",
-    "resumen": "Acceso a herramientas de búsqueda de pictogramas y apoyos visuales para favorecer rutinas, anticipación, comprensión y comunicación.",
-    "palabras": ["pictogramas", "comunicación", "TEA", "rutinas", "anticipación"],
-    "enlace": "https://gabriel-lsp.github.io/materiales-educativos-accesibles/pictogramas.html"
-  },
-  {
-    "titulo": "Lengua de Señas Peruana en recursos educativos",
-    "categoria": "Lengua de señas",
-    "fecha": "2026",
-    "fuente": "Banco Digital Accesible",
-    "resumen": "Recurso para consultar señas organizadas por categorías, útil como apoyo visual en actividades educativas y acciones de sensibilización.",
-    "palabras": ["lengua de señas", "LSP", "discapacidad auditiva", "comunicación", "accesibilidad"],
-    "enlace": "https://gabriel-lsp.github.io/banco-digital-lsp/"
-  },
-  {
-    "titulo": "Braille como apoyo para la accesibilidad",
-    "categoria": "Braille",
-    "fecha": "2026",
-    "fuente": "Banco Digital Accesible",
-    "resumen": "Espacio orientado al reconocimiento de signos braille, generación de palabras y actividades iniciales para fortalecer la accesibilidad visual.",
-    "palabras": ["braille", "discapacidad visual", "accesibilidad", "lectoescritura", "apoyos"],
-    "enlace": "https://gabriel-lsp.github.io/banco-digital-braille/"
-  },
-  {
-    "titulo": "Criterios para leer una noticia inclusiva",
-    "categoria": "Lectura crítica",
-    "fecha": "2026",
-    "fuente": "Noti Inclusivos",
-    "resumen": "Guía breve para revisar si una noticia usa lenguaje respetuoso, reconoce derechos y aporta información útil sobre apoyos, participación y accesibilidad.",
-    "palabras": ["noticias", "inclusión", "derechos", "lenguaje respetuoso", "discapacidad"],
-    "enlace": "#"
-  }
-]
+{
+  "actualizado": "2026-06-20",
+  "noticias": [
+    {
+      "titulo": "Búsqueda inicial sobre inclusión educativa",
+      "fuente": "Google News",
+      "fecha": "2026-06-20",
+      "tema": "inclusión educativa",
+      "resumen": "Entrada inicial del portal. Cuando GitHub Actions se ejecute, este archivo será reemplazado por noticias actualizadas desde fuentes RSS.",
+      "url": "https://news.google.com/search?q=inclusi%C3%B3n%20educativa%20Per%C3%BA"
+    },
+    {
+      "titulo": "Consulta inicial sobre educación inclusiva en MINEDU",
+      "fuente": "MINEDU / Gob.pe",
+      "fecha": "2026-06-20",
+      "tema": "MINEDU educación inclusiva",
+      "resumen": "Acceso inicial para revisar publicaciones vinculadas con educación inclusiva. Puede actualizarse automáticamente o editarse manualmente.",
+      "url": "https://www.gob.pe/busquedas?contenido[]=noticias&term=educaci%C3%B3n%20inclusiva"
+    },
+    {
+      "titulo": "Consulta inicial sobre accesibilidad y discapacidad",
+      "fuente": "CONADIS / Gob.pe",
+      "fecha": "2026-06-20",
+      "tema": "discapacidad accesibilidad",
+      "resumen": "Acceso inicial para revisar información vinculada con discapacidad, accesibilidad y derechos. Puede actualizarse automáticamente o editarse manualmente.",
+      "url": "https://www.gob.pe/conadis"
+    }
+  ]
+}
