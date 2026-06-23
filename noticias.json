@@ -1,29 +1,77 @@
 {
-  "actualizado": "2026-06-20",
+  "actualizado": "2026-06-22T17:58:25.658947+00:00",
   "noticias": [
     {
-      "titulo": "Búsqueda inicial sobre inclusión educativa",
-      "fuente": "Google News",
-      "fecha": "2026-06-20",
-      "tema": "inclusión educativa",
-      "resumen": "Entrada inicial del portal. Cuando GitHub Actions se ejecute, este archivo será reemplazado por noticias actualizadas desde fuentes RSS.",
-      "url": "https://news.google.com/search?q=inclusi%C3%B3n%20educativa%20Per%C3%BA"
+      "titulo": "La inclusión educativa en el Perú sigue fallando desde su base estructural - Gan@Más",
+      "fuente": "Gan@Más",
+      "fecha": "2026-04-19",
+      "tema": "inclusión educativa Perú",
+      "resumen": "La inclusión educativa en el Perú sigue fallando desde su base estructural &nbsp;&nbsp; Gan@Más",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZU40YW55ZFBHWWE0Vl9TSjZVdmVmQ290eHZuUFRVbFFfQ2xqOWFfNk5wRjBjSHZTUkRESTl3LUhMZkJ5OWYyV0pWdXpiYmpSSF8zVkp5YzQ0X3NXcWtxUDFKVVpsSS0xU3Ffelp0LXFqRGFwME1iQUtQY21KcGZrRF9mUXF4dmdTOEtjWVlRY1JWYlFZSDY3eTJlaGxUZUVQa2dIYzh3UDI?oc=5"
     },
     {
-      "titulo": "Consulta inicial sobre educación inclusiva en MINEDU",
-      "fuente": "MINEDU / Gob.pe",
-      "fecha": "2026-06-20",
+      "titulo": "Perú reafirma en Barcelona su apuesta por una educación inclusiva, innovadora y con equidad - El Peruano",
+      "fuente": "El Peruano",
+      "fecha": "2026-05-28",
+      "tema": "inclusión educativa Perú",
+      "resumen": "Perú reafirma en Barcelona su apuesta por una educación inclusiva, innovadora y con equidad &nbsp;&nbsp; El Peruano",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOcXFPcGRWZGpzbjVCOXp3aWFCNTJsdlR6YXoteGpWT0lSZHdiQXByazRCcHQxOHBWcHdtQnlaODZQT3JsNjhNSDRTSG9qaE9TZDNjWnp2YVpwcE54QWVrczJWZzFuYUdCUHhrTkZnSWhVTXU0TXZaVldzQy1GR2JXNlBvMl9sVkdjUmhYU3h4Z1didHRTS2hpUkdEcUtTSkg0WlhQVi03a2lGODE2NkduSGFiX2F1YW1WV19CcU9OYUh3eFhM?oc=5"
+    },
+    {
+      "titulo": "Escuelas de América Latina avanzan en inclusión con nuevo programa de mentorías impulsado por la red RIINEE - UNESCO",
+      "fuente": "UNESCO",
+      "fecha": "2026-04-01",
+      "tema": "inclusión educativa Perú",
+      "resumen": "Escuelas de América Latina avanzan en inclusión con nuevo programa de mentorías impulsado por la red RIINEE &nbsp;&nbsp; UNESCO",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ0RoVGhpRWx5STNNSi1CTWJ0V0dFTm9yQmZCMnplZWlaOUZ2cmtWYTFFYlU2aWhMNE80RUdqWllUTjBuWVJoek9kTGdoR1pYQ0IyYVFZWXhkZUJKOVBPNWc5NUg0SEEwcWRaUXV3NTFZU0JPMi1KWmdjbllNdHEzc01hcTlZYVozSXhPREFwaHNRRjVlXzdwdDBla2w0em5tZWdTalgtNlItRkpubVZCbGRnd0ZzQlFFU1p3N2p0cUJEd1J2U19MUmZ5VmRUU2Zk?oc=5"
+    },
+    {
+      "titulo": "ADECOPA: Educación en debate internacional - Revista Caretas",
+      "fuente": "Revista Caretas",
+      "fecha": "2026-06-12",
+      "tema": "inclusión educativa Perú",
+      "resumen": "ADECOPA: Educación en debate internacional &nbsp;&nbsp; Revista Caretas",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPcDVwLXBabUZQcHJ1RjBPdWZYTzlvM3lHWVpGVVpaZ3pmUHRyaGVsRVlWSVd3U1dOOFpYRUZzeGhObUtxcGppT3BiV2ZKZ09ZclpjTm1ESkNPSVFBOEkxa2hrWVNfOVUyRllFT0dVN0VPUDZzQlRTOXRMQTV1NTI5MktuUEdBSDdveU9LR1Q0T0hMSmlPam44VWxVSWlBbXJVOGQ0TlZYalR6WHA2ei1kNWtNZTcxMzl2NUdqVmhCQzQ1UVJyLUc3YkdzSVBRWXdHR0J2Q1p3Qm5WQXNnU1JQTQ?oc=5"
+    },
+    {
+      "titulo": "Educación en el Perú y la región: tres miradas desde la investigación - Universidad Peruana Cayetano Heredia",
+      "fuente": "Universidad Peruana Cayetano Heredia",
+      "fecha": "2026-01-28",
+      "tema": "inclusión educativa Perú",
+      "resumen": "Educación en el Perú y la región: tres miradas desde la investigación &nbsp;&nbsp; Universidad Peruana Cayetano Heredia",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPaG5kMTFSb1NMU2s2VHgwUEl1NUM5R3ZFTUZoUEtoTkU3NHBfdXdnNHpmUE84MXRQWGRfc0psMGpadlM1LTVyWDVPcURITjd6SnZyNl9KRUNQTFNvSXpTX3RtbEU0aGVXUFRyMUxJeWRWcmhtc1FVdElNM2UzR2loV2lVQVVhYmV0X1o1enhkeHhjSGtqSWdkTXlKN1ZRVnQ5N0UtTFBzWGd0cHBid01hUkxIdmR6V1k?oc=5"
+    },
+    {
+      "titulo": "Democracia y educación en Perú: el informe del IEP alerta sobre desigualdad, fragmentación y desafíos para la ciudadanía - Infobae",
+      "fuente": "Infobae",
+      "fecha": "2026-03-05",
+      "tema": "inclusión educativa Perú",
+      "resumen": "Democracia y educación en Perú: el informe del IEP alerta sobre desigualdad, fragmentación y desafíos para la ciudadanía &nbsp;&nbsp; Infobae",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQR3FLOTRNbjBjcGszZmhEcUtBOEdqWVRpS3hYWVJMS3dsV1A0MjVOYm1ocWZPOFVvQmlMZEFlNXY4bHFmZWNvcF90Tk9EU2tJdGFvb2ZhMmdrdi1JWEtTZ0NxU0JCekREa2FVU1dDdUVOb3h4c2RaRDgwR0N2X2xhdUJ5SlI2c0JqaExYX0E1b1JpYktOX1ZkSF82RVRzOTRXbUlMQkoySURXRy1JN2tXUmFRZGdaRGZZRktQUDg5SUtTa2w1OXN6TGt1R1dBUFE2d0lad3NqT0Ridlc0Q0xmbHFRQjBLUHRQdHFldHBRWHLSAYsCQVVfeXFMTzc1c2x4MVlneVZtT2FwLUxoakVSUVdSTzdGaGRrV2M2cTBIaHVkeWE4ZUtpYTFNZC0tS3huTVNBc0x1aWI2RTlJcUNraDV1UzNxSFVlZmFqUXhsSl9sdDhKcW9GdnBQajJURU1WNXpjNnVfX3R4VnJYdVN3dlFxT0NSSlRFaW1fQzd1RXZpZlpELUVRM1l2VFRBUGZUa3phT2ZjaXVNQVBMRjVDT0hib3dfbmJQOFpUNE51VElBMGhTb2M1UW55SmlHY053dnlzbTBkMWdNWllvX1BlUG1VM3RNNWZyNmNpWllJX0ZaZmJfQkFtLTdCdndoelJsZFBidmt2WGlDVHIzcGVz?oc=5"
+    },
+    {
+      "titulo": "Minedu capacita a más de 1300 especialistas para impulsar la educación inclusiva en las escuelas - diariouno.pe",
+      "fuente": "diariouno.pe",
+      "fecha": "2026-06-04",
       "tema": "MINEDU educación inclusiva",
-      "resumen": "Acceso inicial para revisar publicaciones vinculadas con educación inclusiva. Puede actualizarse automáticamente o editarse manualmente.",
-      "url": "https://www.gob.pe/busquedas?contenido[]=noticias&term=educaci%C3%B3n%20inclusiva"
+      "resumen": "Minedu capacita a más de 1300 especialistas para impulsar la educación inclusiva en las escuelas &nbsp;&nbsp; diariouno.pe",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPc2cyYUVPQUJabE9hV2tESmE2Zms1SG1WM1pROEh4R09zNzFWbG53MUp1eGRCUnZkZk4ycG44MUpMYXRfdk56Z3YyV2J1VEZRekRJUjJzdkNzeFJfTE9lYk9yTVpYdjBVX3E2V2FzN1NEVFlIS2NCTV9tNUxUSFowdklMRmswMUphVzcwaXNHLTJJS1NQdnNNVlNTMENaMzRxUEFCem5tY2drTXY3dldZbUJnc3ZsTUxaUnNxSjZOaVY0Yl80aGZpNg?oc=5"
     },
     {
-      "titulo": "Consulta inicial sobre accesibilidad y discapacidad",
-      "fuente": "CONADIS / Gob.pe",
-      "fecha": "2026-06-20",
-      "tema": "discapacidad accesibilidad",
-      "resumen": "Acceso inicial para revisar información vinculada con discapacidad, accesibilidad y derechos. Puede actualizarse automáticamente o editarse manualmente.",
-      "url": "https://www.gob.pe/conadis"
+      "titulo": "Minedu y sector privado refuerzan la educación inclusiva con aula digital para CEBE Perú-Holanda - apnoticias.pe",
+      "fuente": "apnoticias.pe",
+      "fecha": "2026-06-14",
+      "tema": "MINEDU educación inclusiva",
+      "resumen": "Minedu y sector privado refuerzan la educación inclusiva con aula digital para CEBE Perú-Holanda &nbsp;&nbsp; apnoticias.pe",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQY0ZZS0prd0NVYUtwNU9WdnBLZFFyQ3RNY3RsNzBPUU9XU2NwYkpUd0dIZGxjVXFXWFJuZ0JkWDY0RkFzUUJGY1pFZFBlV0QyX2FyVWwtaFNuU3Bfa1lsTjZLOWFWeDFMQ0pJS01XSG9rR3dDU0FWT3VRZlQ4N2V6YmRzNzZSNGxyNE9HVnhGMGVZMVpUS0FVZTlEdDVvVkE4WGZLRWhyOU53UEtwdGF2T3JaaDhYZW1XM3dUQjd3RHgzS2F6Z2Y4MnJR?oc=5"
+    },
+    {
+      "titulo": "MÁS SOBRE LA REORGANIZACIÓN DEL MINEDU, columna de Idel Vexler - Diario Correo",
+      "fuente": "Diario Correo",
+      "fecha": "2026-06-09",
+      "tema": "MINEDU educación inclusiva",
+      "resumen": "MÁS SOBRE LA REORGANIZACIÓN DEL MINEDU, columna de Idel Vexler &nbsp;&nbsp; Diario Correo",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOUU5iWnNWZWRCMXd3NnFrQ19sdnJEOE5meVFRWFFWc0ZHeUhMcHoySVpUbmthVk0xWU9BV0hXeG1vZlNmTF9qOV92dWdrMXU4d0phZ1hFRElqWkZWWW5uV2RvMnU3NjRwaTNld2ZiMnBfWnNYd2FHSmlOUURIRUFrLWZGM1dvNHl1bDVtM0dIc1NFRzhOSkRGWmxCeWpTRDFKMFVIaNIBuAFBVV95cUxOYjB6eTgwQUZaMTFNbUtrcG5iWTJNVzBjcE14UTVWdk8xNVJLMEdDNWp4czZvSkt5VWJZSm51QVE1TnNzencxelFXVER5Ujd4blRsd2JhQlFDNDFUZU9BNm5VNEpiVGtMTmo4NG5kYmJ5X2I4TTFyaUtORUtlU2F6SDk3dHk5VzZ0Q1NKSENxQjRCZUI1Q0xybVZMVnN3S0tkTUtla0JEOEhLdF9fbnB3WWk2ejJxZS1D?oc=5"
     }
   ]
 }
