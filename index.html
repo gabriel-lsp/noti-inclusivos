@@ -240,12 +240,14 @@
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:18px;
       margin-top:24px;
+      overflow:hidden;
     }
 
     .tarjeta-noti{
       display:flex;
       flex-direction:column;
       justify-content:space-between;
+      min-width:0;
       min-height:270px;
       padding:20px;
       background:#fff;
@@ -276,6 +278,16 @@
       margin:0;
       color:var(--texto-suave);
       font-size:.96rem;
+    }
+
+    .tarjeta-noti,
+    .tarjeta-noti h3,
+    .tarjeta-noti p,
+    .etiqueta-noti,
+    .enlace-noti{
+      max-width:100%;
+      overflow-wrap:anywhere;
+      word-break:break-word;
     }
 
     .meta-noti{
@@ -382,6 +394,10 @@
       .detalle-institucional{font-size:.9rem}
       main{width:min(100% - 28px,1120px)}
       .controles{grid-template-columns:1fr}
+      .tarjeta-noti{padding:18px}
+      .tarjeta-noti h3{font-size:1.05rem}
+      .tarjeta-noti p{font-size:.92rem}
+      .enlace-noti{width:100%;text-align:center}
     }
   </style>
 </head>
