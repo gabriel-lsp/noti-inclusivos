@@ -144,12 +144,12 @@ async function iniciarNotiInclusivos() {
     mostrarPublicaciones();
 
     if (estadoNoti) {
-      estadoNoti.textContent = "Noticias cargadas desde la carpeta data/.";
+      estadoNoti.textContent = "Noticias cargadas correctamente.";
     }
   } catch (error) {
     listaNoti.innerHTML = `
       <p class="estado-vacio">
-        No se pudieron cargar las publicaciones. Verifica que los archivos data/noticias.json y data/noticias-rss.json estén disponibles.
+        No se pudieron cargar las publicaciones. Inténtalo nuevamente más tarde.
       </p>
     `;
     contadorNoti.textContent = "";
