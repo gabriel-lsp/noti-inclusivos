@@ -37,6 +37,23 @@ QUERIES = [
     "materiales accesibles educación Perú",
     "recursos educativos accesibles Perú",
 
+    # Comunicación aumentativa, alternativa y accesible
+    "comunicación aumentativa y alternativa educación Perú",
+    "CAA educación especial Perú",
+    "pictogramas educación inclusiva Perú",
+    "PECS educación Perú",
+    "tablero de comunicación discapacidad Perú",
+    "comunicación alternativa discapacidad Perú",
+    "comunicación aumentativa discapacidad Perú",
+
+    # Accesibilidad digital e informativa
+    "lectura fácil discapacidad Perú",
+    "documentos accesibles educación Perú",
+    "accesibilidad web educación Perú",
+    "lector de pantalla educación Perú",
+    "subtitulado accesibilidad educación Perú",
+    "audiodescripción educación Perú",
+
     # Discapacidad visual
     "discapacidad visual educación Perú",
     "ceguera educación Perú",
@@ -47,6 +64,11 @@ QUERIES = [
     "sistema braille educación Perú",
     "lectoescritura braille Perú",
     "estudiantes con discapacidad visual Perú",
+    "orientación y movilidad discapacidad visual Perú",
+    "bastón blanco educación Perú",
+    "tiflología educación Perú",
+    "lupa electrónica baja visión Perú",
+    "magnificador baja visión Perú",
 
     # Discapacidad auditiva y comunicación
     "discapacidad auditiva educación Perú",
@@ -60,6 +82,11 @@ QUERIES = [
     "LSP educación Perú",
     "intérprete de lengua de señas educación Perú",
     "comunicación accesible estudiantes sordos Perú",
+    "implante coclear educación Perú",
+    "audífonos hipoacusia educación Perú",
+    "pérdida auditiva educación Perú",
+    "cultura sorda educación Perú",
+    "educación bilingüe bicultural sordos Perú",
 
     # Sordoceguera
     "sordoceguera educación Perú",
@@ -79,6 +106,11 @@ QUERIES = [
     "trastorno por déficit de atención educación Perú",
     "dificultades de aprendizaje educación Perú",
     "dislexia educación Perú",
+    "trastorno específico del aprendizaje educación Perú",
+    "trastorno del lenguaje educación Perú",
+    "trastorno específico del lenguaje educación Perú",
+    "altas capacidades educación Perú",
+    "doble excepcionalidad educación Perú",
 
     # Discapacidad intelectual, física, múltiple y psicosocial
     "discapacidad intelectual educación Perú",
@@ -91,12 +123,18 @@ QUERIES = [
     "discapacidad psicosocial educación Perú",
     "salud mental educación inclusiva Perú",
 
-    # Familia, docentes y participación
+    # Familia, docentes, participación y transición
     "familias discapacidad educación Perú",
     "docentes educación inclusiva Perú",
     "capacitación docente inclusión educativa Perú",
     "convivencia escolar inclusión discapacidad Perú",
     "participación de estudiantes con discapacidad Perú",
+    "transición a la vida adulta discapacidad Perú",
+    "vida independiente discapacidad Perú",
+    "habilidades adaptativas discapacidad Perú",
+    "autonomía estudiantes con discapacidad Perú",
+    "inserción laboral personas con discapacidad Perú",
+    "formación ocupacional discapacidad Perú",
 ]
 
 MAX_PER_QUERY = 3
