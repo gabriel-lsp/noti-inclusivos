@@ -55,6 +55,33 @@ const PALABRAS_CRITERIO = [
   "tecnología accesible",
   "tecnologia accesible",
 
+  // Comunicación aumentativa, alternativa y accesible
+  "comunicación aumentativa y alternativa",
+  "comunicacion aumentativa y alternativa",
+  "comunicación aumentativa",
+  "comunicacion aumentativa",
+  "comunicación alternativa",
+  "comunicacion alternativa",
+  "caa",
+  "pictogramas",
+  "pecs",
+  "tablero de comunicación",
+  "tablero de comunicacion",
+  "sistemas alternativos de comunicación",
+  "sistemas alternativos de comunicacion",
+
+  // Accesibilidad digital e informativa
+  "lectura fácil",
+  "lectura facil",
+  "documento accesible",
+  "documentos accesibles",
+  "accesibilidad web",
+  "lector de pantalla",
+  "lectores de pantalla",
+  "subtitulado",
+  "audiodescripción",
+  "audiodescripcion",
+
   // Discapacidad visual
   "discapacidad visual",
   "ceguera",
@@ -75,6 +102,15 @@ const PALABRAS_CRITERIO = [
   "macrotipo",
   "tiflotecnología",
   "tiflotecnologia",
+  "orientación y movilidad",
+  "orientacion y movilidad",
+  "bastón blanco",
+  "baston blanco",
+  "tiflología",
+  "tiflologia",
+  "lupa electrónica",
+  "lupa electronica",
+  "magnificador",
 
   // Discapacidad auditiva y comunicación
   "discapacidad auditiva",
@@ -99,6 +135,14 @@ const PALABRAS_CRITERIO = [
   "interprete de lengua de senas",
   "comunicación accesible",
   "comunicacion accesible",
+  "implante coclear",
+  "audífonos",
+  "audifonos",
+  "pérdida auditiva",
+  "perdida auditiva",
+  "cultura sorda",
+  "educación bilingüe bicultural",
+  "educacion bilingue bicultural",
 
   // Sordoceguera
   "sordoceguera",
@@ -129,6 +173,13 @@ const PALABRAS_CRITERIO = [
   "discalculia",
   "disgrafía",
   "disgrafia",
+  "trastorno específico del aprendizaje",
+  "trastorno especifico del aprendizaje",
+  "trastorno del lenguaje",
+  "trastorno específico del lenguaje",
+  "trastorno especifico del lenguaje",
+  "altas capacidades",
+  "doble excepcionalidad",
 
   // Discapacidad intelectual, física, múltiple y psicosocial
   "discapacidad intelectual",
@@ -150,7 +201,7 @@ const PALABRAS_CRITERIO = [
   "salud mental",
   "trastorno mental",
 
-  // Familia, docentes y participación
+  // Familia, docentes, participación y transición
   "familias",
   "familias con discapacidad",
   "docentes inclusivos",
@@ -162,7 +213,17 @@ const PALABRAS_CRITERIO = [
   "formacion docente",
   "convivencia escolar",
   "participación educativa",
-  "participacion educativa"
+  "participacion educativa",
+  "transición a la vida adulta",
+  "transicion a la vida adulta",
+  "vida independiente",
+  "habilidades adaptativas",
+  "autonomía",
+  "autonomia",
+  "inserción laboral",
+  "insercion laboral",
+  "formación ocupacional",
+  "formacion ocupacional"
 ];
 
 function limpiarHtml(texto = "") {
