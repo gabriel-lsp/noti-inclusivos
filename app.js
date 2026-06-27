@@ -13,46 +13,103 @@ function normalizar(texto) {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
-function escaparHtml(texto) {
-  return String(texto || "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
 function obtenerEnlace(publicacion) {
   return publicacion.url || publicacion.enlace || "#";
+}
+
+function obtenerTiempoFecha(fecha) {
+  const textoFecha = String(fecha || "").trim();
+
+  if (!textoFecha) {
+    return 0;
+  }
+
+  const fechaIso = new Date(textoFecha);
+
+  if (!Number.isNaN(fechaIso.getTime())) {
+    return fechaIso.getTime();
+  }
+
+  const meses = {
+    enero: 0,
+    febrero: 1,
+    marzo: 2,
+    abril: 3,
+    mayo: 4,
+    junio: 5,
+    julio: 6,
+    agosto: 7,
+    septiembre: 8,
+    setiembre: 8,
+    octubre: 9,
+    noviembre: 10,
+    diciembre: 11
+  };
+
+  const coincidencia = normalizar(textoFecha).match(/(\d{1,2})\s+de\s+([a-z]+)\s+de\s+(\d{4})/);
+
+  if (!coincidencia) {
+    return 0;
+  }
+
+  const dia = Number(coincidencia[1]);
+  const mes = meses[coincidencia[2]];
+  const anio = Number(coincidencia[3]);
+
+  if (!dia || mes === undefined || !anio) {
+    return 0;
+  }
+
+  return new Date(anio, mes, dia).getTime();
+}
+
+function ordenarPorFechaDescendente(lista) {
+  return [...lista].sort((a, b) => obtenerTiempoFecha(b.fecha) - obtenerTiempoFecha(a.fecha));
+}
+
+function crearElementoTexto(etiqueta, clase, texto) {
+  const elemento = document.createElement(etiqueta);
+
+  if (clase) {
+    elemento.className = clase;
+  }
+
+  elemento.textContent = texto;
+  return elemento;
 }
 
 function crearTarjeta(publicacion) {
   const articulo = document.createElement("article");
   articulo.className = "tarjeta-noti";
 
-  const enlace = obtenerEnlace(publicacion);
-  const enlaceValido = enlace && enlace !== "#";
-  const titulo = escaparHtml(publicacion.titulo || "Publicación sin título");
-  const categoria = escaparHtml(publicacion.categoria || publicacion.tema || "General");
-  const resumen = escaparHtml(publicacion.resumen || "Sin resumen disponible.");
-  const fecha = escaparHtml(publicacion.fecha || "Fecha pendiente");
-  const fuente = escaparHtml(publicacion.fuente || "Fuente institucional");
-  const enlaceSeguro = escaparHtml(enlace);
+  const bloqueContenido = document.createElement("div");
+  const categoria = publicacion.categoria || publicacion.tema || "General";
 
-  articulo.innerHTML = `
-    <div>
-      <span class="etiqueta-noti">${categoria}</span>
-      <h3>${titulo}</h3>
-      <p>${resumen}</p>
-    </div>
-    <div>
-      <div class="meta-noti">
-        <p class="fecha-noti">${fecha}</p>
-        <p class="fuente-noti">${fuente}</p>
-      </div>
-      ${enlaceValido ? `<a class="enlace-noti" href="${enlaceSeguro}" target="_blank" rel="noopener noreferrer">Leer noticia completa</a>` : ""}
-    </div>
-  `;
+  bloqueContenido.appendChild(crearElementoTexto("span", "etiqueta-noti", categoria));
+  bloqueContenido.appendChild(crearElementoTexto("h3", "", publicacion.titulo || "Publicación sin título"));
+  bloqueContenido.appendChild(crearElementoTexto("p", "", publicacion.resumen || "Sin resumen disponible."));
+
+  const bloqueMeta = document.createElement("div");
+  const meta = document.createElement("div");
+  meta.className = "meta-noti";
+  meta.appendChild(crearElementoTexto("p", "fecha-noti", publicacion.fecha || "Fecha pendiente"));
+  meta.appendChild(crearElementoTexto("p", "fuente-noti", publicacion.fuente || "Fuente institucional"));
+  bloqueMeta.appendChild(meta);
+
+  const enlace = obtenerEnlace(publicacion);
+
+  if (enlace && enlace !== "#") {
+    const enlaceNoti = document.createElement("a");
+    enlaceNoti.className = "enlace-noti";
+    enlaceNoti.href = enlace;
+    enlaceNoti.target = "_blank";
+    enlaceNoti.rel = "noopener noreferrer";
+    enlaceNoti.textContent = "Leer noticia completa";
+    bloqueMeta.appendChild(enlaceNoti);
+  }
+
+  articulo.appendChild(bloqueContenido);
+  articulo.appendChild(bloqueMeta);
 
   return articulo;
 }
@@ -139,7 +196,7 @@ async function iniciarNotiInclusivos() {
       cargarJson("data/noticias-rss.json?v=" + Date.now())
     ]);
 
-    publicaciones = unirSinDuplicados(manuales, rss);
+    publicaciones = ordenarPorFechaDescendente(unirSinDuplicados(manuales, rss));
     cargarCategorias();
     mostrarPublicaciones();
 
