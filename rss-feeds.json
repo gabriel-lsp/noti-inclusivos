@@ -103,5 +103,65 @@
     "nombre": "Google News - Capacitación docente inclusiva",
     "categoria": "Capacitación docente",
     "url": "https://news.google.com/rss/search?q=capacitaci%C3%B3n%20docente%20inclusi%C3%B3n%20educativa%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Comunicación aumentativa y alternativa",
+    "categoria": "Comunicación aumentativa y alternativa",
+    "url": "https://news.google.com/rss/search?q=comunicaci%C3%B3n%20aumentativa%20alternativa%20educaci%C3%B3n%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Pictogramas y PECS",
+    "categoria": "Comunicación aumentativa y alternativa",
+    "url": "https://news.google.com/rss/search?q=pictogramas%20PECS%20educaci%C3%B3n%20inclusiva%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Lectura fácil y documentos accesibles",
+    "categoria": "Accesibilidad digital",
+    "url": "https://news.google.com/rss/search?q=lectura%20f%C3%A1cil%20documentos%20accesibles%20discapacidad%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Accesibilidad web y lector de pantalla",
+    "categoria": "Accesibilidad digital",
+    "url": "https://news.google.com/rss/search?q=accesibilidad%20web%20lector%20de%20pantalla%20educaci%C3%B3n%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Orientación y movilidad",
+    "categoria": "Discapacidad visual",
+    "url": "https://news.google.com/rss/search?q=orientaci%C3%B3n%20movilidad%20bast%C3%B3n%20blanco%20discapacidad%20visual%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Implante coclear y audífonos",
+    "categoria": "Discapacidad auditiva",
+    "url": "https://news.google.com/rss/search?q=implante%20coclear%20aud%C3%ADfonos%20hipoacusia%20educaci%C3%B3n%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Cultura sorda y educación bilingüe bicultural",
+    "categoria": "Discapacidad auditiva",
+    "url": "https://news.google.com/rss/search?q=cultura%20sorda%20educaci%C3%B3n%20biling%C3%BCe%20bicultural%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Trastorno del lenguaje",
+    "categoria": "Neurodesarrollo y aprendizaje",
+    "url": "https://news.google.com/rss/search?q=trastorno%20del%20lenguaje%20educaci%C3%B3n%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Trastorno específico del aprendizaje",
+    "categoria": "Neurodesarrollo y aprendizaje",
+    "url": "https://news.google.com/rss/search?q=trastorno%20espec%C3%ADfico%20del%20aprendizaje%20educaci%C3%B3n%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Altas capacidades y doble excepcionalidad",
+    "categoria": "Neurodesarrollo y aprendizaje",
+    "url": "https://news.google.com/rss/search?q=altas%20capacidades%20doble%20excepcionalidad%20educaci%C3%B3n%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Transición a la vida adulta",
+    "categoria": "Transición a la vida adulta",
+    "url": "https://news.google.com/rss/search?q=transici%C3%B3n%20vida%20adulta%20discapacidad%20educaci%C3%B3n%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News - Vida independiente e inserción laboral",
+    "categoria": "Transición a la vida adulta",
+    "url": "https://news.google.com/rss/search?q=vida%20independiente%20inserci%C3%B3n%20laboral%20personas%20con%20discapacidad%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
   }
 ]
