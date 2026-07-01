@@ -38,7 +38,6 @@ function limpiarResumen(resumen) {
 
 function obtenerTiempoFecha(fecha) {
   const textoFecha = String(fecha || "").trim();
-
   if (!textoFecha) return 0;
 
   const fechaIso = new Date(textoFecha);
@@ -66,7 +65,6 @@ function obtenerTiempoFecha(fecha) {
   const dia = Number(coincidencia[1]);
   const mes = meses[coincidencia[2]];
   const anio = Number(coincidencia[3]);
-
   if (!dia || mes === undefined || !anio) return 0;
 
   return new Date(anio, mes, dia).getTime();
@@ -126,31 +124,23 @@ function crearTarjeta(publicacion) {
   return articulo;
 }
 
-function actualizarTextoModo(modo) {
-  if (!tituloLista || !descripcionLista) return;
-
-  if (modo === "archivo") {
-    tituloLista.textContent = "Archivo de noticias";
-    descripcionLista.textContent = `Publicaciones anteriores a los últimos ${DIAS_RECIENTES} días.`;
-    return;
+function ajustarInterfazTiempo() {
+  if (filtroTiempo) {
+    filtroTiempo.value = "recientes";
+    filtroTiempo.disabled = true;
+    filtroTiempo.closest("label")?.remove();
+    filtroTiempo.style.display = "none";
   }
 
-  if (modo === "todas") {
-    tituloLista.textContent = "Todas las noticias";
-    descripcionLista.textContent = "Publicaciones recientes y archivo, ordenadas por fecha.";
-    return;
-  }
-
-  tituloLista.textContent = "Noticias recientes";
-  descripcionLista.textContent = `Publicaciones de los últimos ${DIAS_RECIENTES} días.`;
+  if (tituloLista) tituloLista.textContent = "Noticias recientes";
+  if (descripcionLista) descripcionLista.textContent = `Publicaciones de los últimos ${DIAS_RECIENTES} días.`;
 }
 
 function mostrarPublicaciones() {
+  ajustarInterfazTiempo();
+
   const textoBusqueda = normalizar(busquedaNoti.value.trim());
   const categoriaSeleccionada = filtroCategoria.value;
-  const modoTiempo = filtroTiempo ? filtroTiempo.value : "recientes";
-
-  actualizarTextoModo(modoTiempo);
 
   const resultados = publicaciones.filter((publicacion) => {
     const categoria = publicacion.categoria || publicacion.tema || "General";
@@ -158,10 +148,8 @@ function mostrarPublicaciones() {
     const palabras = Array.isArray(publicacion.palabras) ? publicacion.palabras.join(" ") : "";
     const contenido = normalizar(`${publicacion.titulo} ${categoria} ${publicacion.resumen} ${publicacion.fuente || ""} ${obtenerEnlace(publicacion)} ${palabras}`);
     const coincideBusqueda = contenido.includes(textoBusqueda);
-    const reciente = esReciente(publicacion);
-    const coincideTiempo = modoTiempo === "todas" || (modoTiempo === "recientes" && reciente) || (modoTiempo === "archivo" && !reciente);
 
-    return coincideCategoria && coincideBusqueda && coincideTiempo;
+    return coincideCategoria && coincideBusqueda && esReciente(publicacion);
   });
 
   listaNoti.innerHTML = "";
@@ -169,21 +157,21 @@ function mostrarPublicaciones() {
   if (resultados.length === 0) {
     const vacio = document.createElement("p");
     vacio.className = "estado-vacio";
-    vacio.textContent = modoTiempo === "recientes"
-      ? `No hay noticias de los últimos ${DIAS_RECIENTES} días con esos criterios.`
-      : "No se encontraron publicaciones con esos criterios.";
+    vacio.textContent = `No hay noticias de los últimos ${DIAS_RECIENTES} días con esos criterios.`;
     listaNoti.appendChild(vacio);
   } else {
     resultados.forEach((publicacion) => listaNoti.appendChild(crearTarjeta(publicacion)));
   }
 
-  contadorNoti.textContent = `${resultados.length} publicación(es) encontrada(s).`;
+  contadorNoti.textContent = `${resultados.length} publicación(es) reciente(s) encontrada(s).`;
 }
 
 function cargarCategorias() {
   filtroCategoria.innerHTML = '<option value="todas">Todas</option>';
 
-  const categorias = [...new Set(publicaciones.map((publicacion) => publicacion.categoria || publicacion.tema || "General"))]
+  const categorias = [...new Set(publicaciones
+    .filter(esReciente)
+    .map((publicacion) => publicacion.categoria || publicacion.tema || "General"))]
     .sort((a, b) => a.localeCompare(b, "es"));
 
   categorias.forEach((categoria) => {
@@ -221,6 +209,8 @@ function unirSinDuplicados(listaRss, listaManual) {
 
 async function iniciarNotiinclusivo() {
   try {
+    ajustarInterfazTiempo();
+
     const [manuales, rss] = await Promise.all([
       cargarJson("data/noticias.json?v=" + Date.now()),
       cargarJson("data/noticias-rss.json?v=" + Date.now())
@@ -230,7 +220,7 @@ async function iniciarNotiinclusivo() {
     cargarCategorias();
     mostrarPublicaciones();
 
-    estadoNoti.textContent = `Noticias cargadas correctamente. Vista inicial: últimos ${DIAS_RECIENTES} días.`;
+    estadoNoti.textContent = `Noticias cargadas correctamente. Solo se muestran publicaciones de los últimos ${DIAS_RECIENTES} días.`;
   } catch (error) {
     listaNoti.innerHTML = '<p class="estado-vacio">No se pudieron cargar las publicaciones. Inténtalo nuevamente más tarde.</p>';
     contadorNoti.textContent = "";
