@@ -1,3 +1,4 @@
+// Actualización de control para forzar nuevo despliegue de GitHub Pages.
 const contenedorPrincipalNoti = document.querySelector("#lista-noti");
 const busquedaNoti = document.querySelector("#busqueda-noti");
 const filtroCategoria = document.querySelector("#filtro-categoria");
