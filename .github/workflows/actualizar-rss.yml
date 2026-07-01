@@ -32,7 +32,7 @@ jobs:
           node - <<'NODE'
           const fs = require('fs');
           const ruta = 'noticias-rss.json';
-          const dias = 90;
+          const dias = 180;
           const ahora = Date.now();
           const limite = ahora - dias * 24 * 60 * 60 * 1000;
           const margenFuturo = ahora + 24 * 60 * 60 * 1000;
@@ -49,12 +49,12 @@ jobs:
             return new Date(Number(m[3]), mes, Number(m[1])).getTime();
           }
           const noticias = JSON.parse(fs.readFileSync(ruta, 'utf8'));
-          const recientes = noticias.filter(n => {
+          const relevantes = noticias.filter(n => {
             const t = tiempo(n.fecha);
             return t >= limite && t <= margenFuturo;
           });
-          fs.writeFileSync(ruta, JSON.stringify(recientes, null, 2) + '\n', 'utf8');
-          console.log(`Noticias recientes conservadas: ${recientes.length}`);
+          fs.writeFileSync(ruta, JSON.stringify(relevantes, null, 2) + '\n', 'utf8');
+          console.log(`Noticias conservadas hasta 180 días: ${relevantes.length}`);
           NODE
           mkdir -p data
           mv noticias-rss.json data/noticias-rss.json
