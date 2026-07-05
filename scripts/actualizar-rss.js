@@ -1,230 +1,54 @@
 const fs = require("fs/promises");
 
-const PALABRAS_CRITERIO = [
-  // Inclusión educativa y educación especial
-  "inclusión",
-  "inclusion",
-  "inclusiva",
-  "inclusivo",
-  "educación inclusiva",
-  "educacion inclusiva",
-  "educación especial",
-  "educacion especial",
-  "educación básica especial",
-  "educacion basica especial",
-  "atención a la diversidad",
-  "atencion a la diversidad",
-  "diversidad educativa",
-  "necesidades educativas",
-  "necesidades educativas especiales",
-  "nee",
-  "cebe",
-  "prite",
-  "saanee",
-  "crebe",
-  "cenarebe",
-  "ugel",
-  "minedu",
+const RUTA_DICCIONARIO = "data/diccionario-ni.json";
+const RUTA_FUENTES = "rss-feeds.json";
+const RUTA_SALIDA = "noticias-rss.json";
 
-  // Discapacidad y accesibilidad
-  "discapacidad",
-  "persona con discapacidad",
-  "personas con discapacidad",
-  "estudiantes con discapacidad",
-  "alumnos con discapacidad",
-  "niños con discapacidad",
-  "ninas con discapacidad",
-  "niñas con discapacidad",
-  "accesibilidad",
-  "accesible",
-  "accesibles",
-  "barreras",
-  "barreras educativas",
-  "ajustes razonables",
-  "apoyos educativos",
-  "apoyos pedagógicos",
-  "apoyos pedagogicos",
-  "adaptaciones curriculares",
-  "diversificación curricular",
-  "diversificacion curricular",
-  "diseño universal para el aprendizaje",
-  "diseno universal para el aprendizaje",
-  "dua",
-  "materiales accesibles",
-  "recursos educativos accesibles",
-  "tecnología accesible",
-  "tecnologia accesible",
-
-  // Comunicación aumentativa, alternativa y accesible
-  "comunicación aumentativa y alternativa",
-  "comunicacion aumentativa y alternativa",
-  "comunicación aumentativa",
-  "comunicacion aumentativa",
-  "comunicación alternativa",
-  "comunicacion alternativa",
-  "caa",
-  "pictogramas",
-  "pecs",
-  "tablero de comunicación",
-  "tablero de comunicacion",
-  "sistemas alternativos de comunicación",
-  "sistemas alternativos de comunicacion",
-
-  // Accesibilidad digital e informativa
-  "lectura fácil",
-  "lectura facil",
-  "documento accesible",
-  "documentos accesibles",
-  "accesibilidad web",
-  "lector de pantalla",
-  "lectores de pantalla",
-  "subtitulado",
-  "audiodescripción",
-  "audiodescripcion",
-
-  // Discapacidad visual
-  "discapacidad visual",
-  "ceguera",
-  "ciego",
-  "ciega",
-  "personas ciegas",
-  "estudiantes ciegos",
-  "baja visión",
-  "baja vision",
-  "visión reducida",
-  "vision reducida",
-  "deficiencia visual",
-  "limitación visual",
-  "limitacion visual",
-  "braille",
-  "sistema braille",
-  "lectoescritura braille",
-  "macrotipo",
-  "tiflotecnología",
-  "tiflotecnologia",
-  "orientación y movilidad",
-  "orientacion y movilidad",
-  "bastón blanco",
-  "baston blanco",
-  "tiflología",
-  "tiflologia",
-  "lupa electrónica",
-  "lupa electronica",
-  "magnificador",
-
-  // Discapacidad auditiva y comunicación
-  "discapacidad auditiva",
-  "sordera",
-  "sordo",
-  "sorda",
-  "personas sordas",
-  "estudiantes sordos",
-  "sordera total",
-  "hipoacusia",
-  "hipoacúsico",
-  "hipoacusico",
-  "deficiencia auditiva",
-  "lengua de señas",
-  "lengua de senas",
-  "lengua de señas peruana",
-  "lengua de senas peruana",
-  "lsp",
-  "señas",
-  "senas",
-  "intérprete de lengua de señas",
-  "interprete de lengua de senas",
-  "comunicación accesible",
-  "comunicacion accesible",
-  "implante coclear",
-  "audífonos",
-  "audifonos",
-  "pérdida auditiva",
-  "perdida auditiva",
-  "cultura sorda",
-  "educación bilingüe bicultural",
-  "educacion bilingue bicultural",
-
-  // Sordoceguera
-  "sordoceguera",
-  "sordo-ceguera",
-  "sordo ceguera",
-  "persona con sordoceguera",
-  "personas con sordoceguera",
-  "estudiantes con sordoceguera",
-
-  // Neurodiversidad, TEA, TDAH y aprendizaje
-  "neurodiversidad",
-  "neurodivergencia",
-  "neurodivergente",
-  "autismo",
-  "autista",
-  "trastorno del espectro autista",
-  "tea",
-  "tdah",
-  "trastorno por déficit de atención",
-  "trastorno por deficit de atencion",
-  "déficit de atención",
-  "deficit de atencion",
-  "hiperactividad",
-  "dificultades de aprendizaje",
-  "problemas de aprendizaje",
-  "trastornos de aprendizaje",
-  "dislexia",
-  "discalculia",
-  "disgrafía",
-  "disgrafia",
-  "trastorno específico del aprendizaje",
-  "trastorno especifico del aprendizaje",
-  "trastorno del lenguaje",
-  "trastorno específico del lenguaje",
-  "trastorno especifico del lenguaje",
-  "altas capacidades",
-  "doble excepcionalidad",
-
-  // Discapacidad intelectual, física, múltiple y psicosocial
-  "discapacidad intelectual",
-  "discapacidad cognitiva",
-  "síndrome de down",
-  "sindrome de down",
-  "discapacidad física",
-  "discapacidad fisica",
-  "discapacidad motora",
-  "discapacidad motriz",
-  "parálisis cerebral",
-  "paralisis cerebral",
-  "movilidad reducida",
-  "discapacidad múltiple",
-  "discapacidad multiple",
-  "multidiscapacidad",
-  "pluridiscapacidad",
-  "discapacidad psicosocial",
-  "salud mental",
-  "trastorno mental",
-
-  // Familia, docentes, participación y transición
-  "familias",
-  "familias con discapacidad",
-  "docentes inclusivos",
-  "docentes de educación especial",
-  "docentes de educacion especial",
-  "capacitación docente",
-  "capacitacion docente",
-  "formación docente",
-  "formacion docente",
-  "convivencia escolar",
-  "participación educativa",
-  "participacion educativa",
-  "transición a la vida adulta",
-  "transicion a la vida adulta",
-  "vida independiente",
-  "habilidades adaptativas",
-  "autonomía",
-  "autonomia",
-  "inserción laboral",
-  "insercion laboral",
-  "formación ocupacional",
-  "formacion ocupacional"
-];
+const DICCIONARIO_BASE = {
+  parametros: {
+    dias_recientes: 90,
+    dias_relevantes: 180,
+    puntaje_minimo: 2,
+    max_palabras_detectadas: 10
+  },
+  categorias: {
+    "Educación inclusiva": [
+      "inclusión educativa",
+      "educacion inclusiva",
+      "educación especial",
+      "educacion especial",
+      "discapacidad",
+      "accesibilidad",
+      "MINEDU",
+      "CONADIS",
+      "CEBE",
+      "PRITE",
+      "TEA",
+      "TDAH",
+      "Braille",
+      "lengua de señas",
+      "lengua de senas"
+    ]
+  },
+  combinaciones: [
+    ["educación", "discapacidad"],
+    ["educacion", "discapacidad"],
+    ["MINEDU", "inclusión"],
+    ["CONADIS", "educación"],
+    ["TEA", "escuela"],
+    ["Braille", "educación"],
+    ["lengua de señas", "educación"]
+  ],
+  exclusiones: [
+    "farándula",
+    "farandula",
+    "deportes",
+    "apuestas",
+    "casino",
+    "entretenimiento",
+    "publicidad"
+  ]
+};
 
 function limpiarHtml(texto = "") {
   return texto
@@ -245,6 +69,16 @@ function normalizar(texto = "") {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+async function leerJson(ruta, valorBase = null) {
+  try {
+    const contenido = await fs.readFile(ruta, "utf8");
+    return JSON.parse(contenido);
+  } catch (error) {
+    if (valorBase !== null) return valorBase;
+    throw error;
+  }
+}
+
 function obtenerEtiqueta(xml, etiqueta) {
   const expresion = new RegExp(`<${etiqueta}[^>]*>([\\s\\S]*?)<\\/${etiqueta}>`, "i");
   const coincidencia = xml.match(expresion);
@@ -253,8 +87,7 @@ function obtenerEtiqueta(xml, etiqueta) {
 }
 
 function obtenerItems(xml) {
-  const coincidencias = xml.match(/<item[\s\S]*?<\/item>/gi) || xml.match(/<entry[\s\S]*?<\/entry>/gi) || [];
-  return coincidencias;
+  return xml.match(/<item[\s\S]*?<\/item>/gi) || xml.match(/<entry[\s\S]*?<\/entry>/gi) || [];
 }
 
 function obtenerEnlace(item) {
@@ -280,21 +113,67 @@ function obtenerFecha(item) {
   });
 }
 
-function cumpleCriterio(publicacion) {
-  const texto = normalizar(`${publicacion.titulo} ${publicacion.resumen} ${publicacion.categoria}`);
-  return PALABRAS_CRITERIO.some((palabra) => texto.includes(normalizar(palabra)));
+function obtenerEntradasCategorias(diccionario) {
+  return Object.entries(diccionario.categorias || {}).flatMap(([categoria, palabras]) => {
+    return (palabras || []).map((palabra) => ({ categoria, palabra }));
+  });
 }
 
-async function leerJson(ruta) {
-  const contenido = await fs.readFile(ruta, "utf8");
-  return JSON.parse(contenido);
-}
+function evaluarPublicacion(publicacion, diccionario) {
+  const texto = normalizar(`${publicacion.titulo} ${publicacion.resumen} ${publicacion.categoria} ${publicacion.fuente}`);
+  const exclusiones = diccionario.exclusiones || [];
 
-async function obtenerNoticiasDeFuente(fuente) {
-  const respuesta = await fetch(fuente.url, {
-    headers: {
-      "user-agent": "NotiInclusivosCREBE/1.0"
+  const tieneExclusion = exclusiones.some((termino) => texto.includes(normalizar(termino)));
+  if (tieneExclusion) {
+    return { aceptada: false, puntaje: 0, palabras: [], categoriaDetectada: publicacion.categoria };
+  }
+
+  const entradas = obtenerEntradasCategorias(diccionario);
+  const puntajePorCategoria = new Map();
+  const palabrasDetectadas = [];
+
+  for (const entrada of entradas) {
+    const termino = normalizar(entrada.palabra);
+    if (!termino || !texto.includes(termino)) continue;
+
+    const peso = termino.includes(" ") ? 2 : 1;
+    puntajePorCategoria.set(entrada.categoria, (puntajePorCategoria.get(entrada.categoria) || 0) + peso);
+    palabrasDetectadas.push(entrada.palabra);
+  }
+
+  for (const grupo of diccionario.combinaciones || []) {
+    const coincideGrupo = grupo.every((termino) => texto.includes(normalizar(termino)));
+    if (coincideGrupo) {
+      const nombreGrupo = grupo.join(" + ");
+      palabrasDetectadas.push(nombreGrupo);
+      puntajePorCategoria.set(publicacion.categoria, (puntajePorCategoria.get(publicacion.categoria) || 0) + 2);
     }
+  }
+
+  let categoriaDetectada = publicacion.categoria;
+  let puntajeMayor = 0;
+
+  for (const [categoria, puntaje] of puntajePorCategoria.entries()) {
+    if (puntaje > puntajeMayor) {
+      categoriaDetectada = categoria;
+      puntajeMayor = puntaje;
+    }
+  }
+
+  const puntajeMinimo = diccionario.parametros?.puntaje_minimo || 2;
+  const maxPalabras = diccionario.parametros?.max_palabras_detectadas || 10;
+
+  return {
+    aceptada: puntajeMayor >= puntajeMinimo,
+    puntaje: puntajeMayor,
+    palabras: [...new Set(palabrasDetectadas)].slice(0, maxPalabras),
+    categoriaDetectada
+  };
+}
+
+async function obtenerNoticiasDeFuente(fuente, diccionario) {
+  const respuesta = await fetch(fuente.url, {
+    headers: { "user-agent": "NotiinclusivoCREBE/1.0" }
   });
 
   if (!respuesta.ok) {
@@ -307,26 +186,35 @@ async function obtenerNoticiasDeFuente(fuente) {
   return items.map((item) => {
     const titulo = obtenerEtiqueta(item, "title") || "Publicación sin título";
     const resumen = obtenerEtiqueta(item, "description") || obtenerEtiqueta(item, "summary") || obtenerEtiqueta(item, "content") || "Sin resumen disponible.";
-
-    return {
+    const publicacionBase = {
       titulo,
       categoria: fuente.categoria || "Noticias RSS",
       fecha: obtenerFecha(item),
       fuente: fuente.nombre,
       resumen: resumen.length > 260 ? `${resumen.slice(0, 257)}...` : resumen,
-      palabras: PALABRAS_CRITERIO.filter((palabra) => normalizar(`${titulo} ${resumen}`).includes(normalizar(palabra))).slice(0, 8),
       enlace: obtenerEnlace(item)
     };
-  }).filter(cumpleCriterio);
+
+    const evaluacion = evaluarPublicacion(publicacionBase, diccionario);
+    if (!evaluacion.aceptada) return null;
+
+    return {
+      ...publicacionBase,
+      categoria: evaluacion.categoriaDetectada || publicacionBase.categoria,
+      puntaje: evaluacion.puntaje,
+      palabras: evaluacion.palabras
+    };
+  }).filter(Boolean);
 }
 
 async function main() {
-  const fuentes = await leerJson("rss-feeds.json");
+  const diccionario = await leerJson(RUTA_DICCIONARIO, DICCIONARIO_BASE);
+  const fuentes = await leerJson(RUTA_FUENTES);
   const noticias = [];
 
   for (const fuente of fuentes) {
     try {
-      const obtenidas = await obtenerNoticiasDeFuente(fuente);
+      const obtenidas = await obtenerNoticiasDeFuente(fuente, diccionario);
       noticias.push(...obtenidas);
     } catch (error) {
       console.warn(error.message);
@@ -344,8 +232,8 @@ async function main() {
     }
   }
 
-  await fs.writeFile("noticias-rss.json", `${JSON.stringify(unicas.slice(0, 30), null, 2)}\n`, "utf8");
-  console.log(`Noticias RSS guardadas: ${unicas.length}`);
+  await fs.writeFile(RUTA_SALIDA, `${JSON.stringify(unicas.slice(0, 60), null, 2)}\n`, "utf8");
+  console.log(`Noticias RSS guardadas con diccionario ampliado: ${unicas.length}`);
 }
 
 main().catch((error) => {

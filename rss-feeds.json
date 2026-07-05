@@ -163,5 +163,65 @@
     "nombre": "Google News - Vida independiente e inserción laboral",
     "categoria": "Transición a la vida adulta",
     "url": "https://news.google.com/rss/search?q=vida%20independiente%20inserci%C3%B3n%20laboral%20personas%20con%20discapacidad%20Per%C3%BA&hl=es-419&gl=PE&ceid=PE:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - Educación inclusiva y discapacidad",
+    "categoria": "Internacional - Educación inclusiva",
+    "url": "https://news.google.com/rss/search?q=educaci%C3%B3n%20inclusiva%20discapacidad&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - Inclusión educativa América Latina",
+    "categoria": "Internacional - Inclusión educativa",
+    "url": "https://news.google.com/rss/search?q=inclusi%C3%B3n%20educativa%20Am%C3%A9rica%20Latina%20discapacidad&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - Accesibilidad educativa",
+    "categoria": "Internacional - Accesibilidad educativa",
+    "url": "https://news.google.com/rss/search?q=accesibilidad%20educativa%20discapacidad&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - Ajustes razonables en educación",
+    "categoria": "Internacional - Ajustes razonables",
+    "url": "https://news.google.com/rss/search?q=ajustes%20razonables%20educaci%C3%B3n%20discapacidad&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - DUA y accesibilidad educativa",
+    "categoria": "Internacional - Accesibilidad educativa",
+    "url": "https://news.google.com/rss/search?q=DUA%20accesibilidad%20educativa%20discapacidad&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - Autismo y educación inclusiva",
+    "categoria": "Internacional - TEA y autismo",
+    "url": "https://news.google.com/rss/search?q=autismo%20educaci%C3%B3n%20inclusiva%20discapacidad&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - Braille y educación",
+    "categoria": "Internacional - Braille",
+    "url": "https://news.google.com/rss/search?q=braille%20educaci%C3%B3n%20discapacidad%20visual&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - Lengua de señas y educación",
+    "categoria": "Internacional - Lengua de señas",
+    "url": "https://news.google.com/rss/search?q=lengua%20de%20se%C3%B1as%20educaci%C3%B3n%20discapacidad%20auditiva&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - Comunicación aumentativa y alternativa",
+    "categoria": "Internacional - Comunicación aumentativa y alternativa",
+    "url": "https://news.google.com/rss/search?q=comunicaci%C3%B3n%20aumentativa%20alternativa%20educaci%C3%B3n%20discapacidad&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - UNESCO educación inclusiva",
+    "categoria": "Internacional - Fuentes institucionales",
+    "url": "https://news.google.com/rss/search?q=UNESCO%20educaci%C3%B3n%20inclusiva%20discapacidad&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - UNICEF discapacidad y educación",
+    "categoria": "Internacional - Fuentes institucionales",
+    "url": "https://news.google.com/rss/search?q=UNICEF%20discapacidad%20educaci%C3%B3n%20inclusiva&hl=es-419&gl=US&ceid=US:es-419"
+  },
+  {
+    "nombre": "Google News Internacional - ONU discapacidad y accesibilidad",
+    "categoria": "Internacional - Fuentes institucionales",
+    "url": "https://news.google.com/rss/search?q=ONU%20discapacidad%20accesibilidad%20educaci%C3%B3n&hl=es-419&gl=US&ceid=US:es-419"
   }
 ]

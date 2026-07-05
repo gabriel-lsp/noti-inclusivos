@@ -1,57 +1,50 @@
 # Estructura del proyecto
 
-Este documento propone una organización básica para el repositorio Noti Inclusivos.
+Este documento propone una organización básica para el repositorio **Noti Inclusivos**, desarrollado como proyecto personal de Gabriel Berrospi.
 
-La estructura puede modificarse según el avance del boletín, pero se recomienda mantener una separación clara entre archivos principales, datos, imágenes, documentos descargables y respaldo documental.
+La estructura puede modificarse según el avance del boletín, pero se recomienda mantener una separación clara entre archivos principales, datos, documentación y respaldo interno.
 
-Estructura sugerida:
+## Estructura sugerida
 
 ```text
 noti-inclusivos/
-│
 ├── index.html
 ├── estilos.css
 ├── app.js
 ├── README.md
+├── AUTORIA.md
 ├── LICENSE
-│
-├── datos/
-│   └── publicaciones.json
-│
-├── imagenes/
-│   ├── flyers/
-│   ├── comunicados/
-│   └── recursos/
-│
-├── documentos/
-│   └── materiales-descargables/
-│
+├── data/
+│   ├── noticias.json
+│   └── noticias-rss.json
 └── docs/
+    ├── autoria-y-contexto.md
+    ├── sustento-del-proyecto-personal.md
+    ├── finalidad-y-funciones.md
+    ├── mapa-funcional-de-enlaces.md
     ├── alcance-comunicacional.md
     ├── fuentes-y-creditos.md
     ├── uso-permitido.md
-    ├── respaldo-institucional.md
+    ├── aviso-de-uso.md
     ├── criterios-de-publicacion.md
     ├── estructura-del-proyecto.md
     └── bitacora-de-cambios.md
 ```
 
-Descripción de archivos y carpetas:
+## Descripción de archivos y carpetas
 
-`index.html` contiene la estructura principal del boletín digital.
+- `index.html`: estructura principal del boletín digital.
+- `estilos.css`: apariencia visual y adaptación a dispositivos.
+- `app.js`: lógica de carga, búsqueda, filtros y presentación dinámica de publicaciones.
+- `data/`: publicaciones manuales y noticias RSS procesadas.
+- `docs/`: documentación de autoría, finalidad, uso, créditos, estructura, criterios y bitácora.
 
-`estilos.css` define la apariencia visual, distribución de secciones, colores, tipografías, espaciados y adaptación a dispositivos.
+## Criterio técnico
 
-`app.js` contiene la lógica de carga, filtros, búsqueda, interacción y presentación dinámica de publicaciones, si corresponde.
+Se recomienda usar nombres de archivo en minúsculas, sin tildes, sin espacios y con guiones medios.
 
-`datos/` almacena información organizada sobre publicaciones, categorías, fechas, enlaces, responsables o recursos asociados.
+También se recomienda organizar las publicaciones por fecha, categoría, fuente y público objetivo para facilitar su búsqueda y actualización.
 
-`imagenes/` contiene flyers, comunicados visuales, recursos gráficos o imágenes de apoyo. Deben contar con fuente clara o autorización de uso.
+## Autoría
 
-`documentos/` puede contener materiales descargables, guías, orientaciones o archivos complementarios.
-
-`docs/` reúne documentos de respaldo, criterios de publicación, uso permitido, créditos, estructura y bitácora.
-
-Para mantener ordenado el repositorio, se recomienda usar nombres de archivo en minúsculas, sin tildes, sin espacios y con guiones medios. Por ejemplo: `capacitacion-dua-2026.png`, `orientaciones-familias.pdf`, `publicaciones.json`.
-
-También se recomienda organizar las publicaciones por fecha, categoría y público objetivo para facilitar su búsqueda y actualización.
+La estructura funcional del repositorio forma parte del proyecto personal y desarrollo original de Gabriel Berrospi.

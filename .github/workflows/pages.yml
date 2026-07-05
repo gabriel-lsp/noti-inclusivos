@@ -25,13 +25,19 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
+      - name: Preparar sitio estatico
+        run: |
+          mkdir -p _site
+          cp -r index.html app.js data assets .nojekyll _site/ 2>/dev/null || true
+          cp -r patron-shipibo.png _site/ 2>/dev/null || true
+
       - name: Configurar Pages
         uses: actions/configure-pages@v5
 
       - name: Subir sitio estatico
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Publicar en GitHub Pages
         id: deployment

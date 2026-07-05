@@ -29,6 +29,33 @@ jobs:
       - name: Generar noticias RSS
         run: |
           node scripts/actualizar-rss.js
+          node - <<'NODE'
+          const fs = require('fs');
+          const ruta = 'noticias-rss.json';
+          const dias = 180;
+          const ahora = Date.now();
+          const limite = ahora - dias * 24 * 60 * 60 * 1000;
+          const margenFuturo = ahora + 24 * 60 * 60 * 1000;
+          const meses = {enero:0,febrero:1,marzo:2,abril:3,mayo:4,junio:5,julio:6,agosto:7,septiembre:8,setiembre:8,octubre:9,noviembre:10,diciembre:11};
+          function normalizar(texto){return String(texto || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+          function tiempo(fecha){
+            const texto = String(fecha || '').trim();
+            const directo = new Date(texto).getTime();
+            if(!Number.isNaN(directo)) return directo;
+            const m = normalizar(texto).match(/(\d{1,2})\s+de\s+([a-z]+)\s+de\s+(\d{4})/);
+            if(!m) return 0;
+            const mes = meses[m[2]];
+            if(mes === undefined) return 0;
+            return new Date(Number(m[3]), mes, Number(m[1])).getTime();
+          }
+          const noticias = JSON.parse(fs.readFileSync(ruta, 'utf8'));
+          const relevantes = noticias.filter(n => {
+            const t = tiempo(n.fecha);
+            return t >= limite && t <= margenFuturo;
+          });
+          fs.writeFileSync(ruta, JSON.stringify(relevantes, null, 2) + '\n', 'utf8');
+          console.log(`Noticias conservadas hasta 180 días: ${relevantes.length}`);
+          NODE
           mkdir -p data
           mv noticias-rss.json data/noticias-rss.json
 
