@@ -1,251 +1,78 @@
-import html
 import json
-import re
-import urllib.parse
-import urllib.request
-import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
-from email.utils import parsedate_to_datetime
 from pathlib import Path
 
-QUERIES = [
-    # Inclusión educativa y educación especial
-    "inclusión educativa Perú",
-    "educación inclusiva Perú",
-    "educación especial Perú",
-    "educación básica especial Perú",
-    "CEBE Perú discapacidad",
-    "PRITE Perú discapacidad",
-    "SAANEE educación inclusiva Perú",
-    "CREBE educación inclusiva Perú",
-    "CENAREBE educación inclusiva",
-    "UGEL inclusión educativa discapacidad",
-    "MINEDU educación inclusiva",
-    "MINEDU educación especial discapacidad",
+# Noticias seleccionadas manualmente para el módulo NI.
+# Criterio: una noticia actual y el resto de semanas anteriores, evitando repetir
+# los títulos que venían apareciendo en la carga automática anterior.
 
-    # Accesibilidad, apoyos y ajustes
-    "accesibilidad educativa Perú",
-    "accesibilidad discapacidad educación Perú",
-    "ajustes razonables educación Perú",
-    "apoyos educativos discapacidad Perú",
-    "adaptaciones curriculares educación inclusiva Perú",
-    "diversificación curricular educación inclusiva Perú",
-    "diversificación curricular discapacidad Perú",
-    "diseño universal para el aprendizaje Perú",
-    "DUA educación inclusiva Perú",
-    "tecnología accesible educación Perú",
-    "materiales accesibles educación Perú",
-    "recursos educativos accesibles Perú",
-
-    # Comunicación aumentativa, alternativa y accesible
-    "comunicación aumentativa y alternativa educación Perú",
-    "CAA educación especial Perú",
-    "pictogramas educación inclusiva Perú",
-    "PECS educación Perú",
-    "tablero de comunicación discapacidad Perú",
-    "comunicación alternativa discapacidad Perú",
-    "comunicación aumentativa discapacidad Perú",
-
-    # Accesibilidad digital e informativa
-    "lectura fácil discapacidad Perú",
-    "documentos accesibles educación Perú",
-    "accesibilidad web educación Perú",
-    "lector de pantalla educación Perú",
-    "subtitulado accesibilidad educación Perú",
-    "audiodescripción educación Perú",
-
-    # Discapacidad visual
-    "discapacidad visual educación Perú",
-    "ceguera educación Perú",
-    "ceguera educación inclusiva Perú",
-    "baja visión educación Perú",
-    "baja visión escuela Perú",
-    "braille educación Perú",
-    "sistema braille educación Perú",
-    "lectoescritura braille Perú",
-    "estudiantes con discapacidad visual Perú",
-    "orientación y movilidad discapacidad visual Perú",
-    "bastón blanco educación Perú",
-    "tiflología educación Perú",
-    "lupa electrónica baja visión Perú",
-    "magnificador baja visión Perú",
-
-    # Discapacidad auditiva y comunicación
-    "discapacidad auditiva educación Perú",
-    "sordera educación Perú",
-    "sordera educación inclusiva Perú",
-    "sordera total educación Perú",
-    "hipoacusia educación Perú",
-    "estudiantes sordos educación Perú",
-    "lengua de señas educación Perú",
-    "lengua de señas peruana educación",
-    "LSP educación Perú",
-    "intérprete de lengua de señas educación Perú",
-    "comunicación accesible estudiantes sordos Perú",
-    "implante coclear educación Perú",
-    "audífonos hipoacusia educación Perú",
-    "pérdida auditiva educación Perú",
-    "cultura sorda educación Perú",
-    "educación bilingüe bicultural sordos Perú",
-
-    # Sordoceguera
-    "sordoceguera educación Perú",
-    "sordoceguera educación inclusiva Perú",
-    "personas con sordoceguera Perú",
-    "estudiantes con sordoceguera Perú",
-
-    # Neurodiversidad, TEA, TDAH y aprendizaje
-    "neurodiversidad educación Perú",
-    "neurodivergencia educación Perú",
-    "autismo educación Perú",
-    "autismo educación inclusiva Perú",
-    "trastorno del espectro autista educación Perú",
-    "TEA educación Perú",
-    "TEA educación inclusiva Perú",
-    "TDAH educación Perú",
-    "trastorno por déficit de atención educación Perú",
-    "dificultades de aprendizaje educación Perú",
-    "dislexia educación Perú",
-    "trastorno específico del aprendizaje educación Perú",
-    "trastorno del lenguaje educación Perú",
-    "trastorno específico del lenguaje educación Perú",
-    "altas capacidades educación Perú",
-    "doble excepcionalidad educación Perú",
-
-    # Discapacidad intelectual, física, múltiple y psicosocial
-    "discapacidad intelectual educación Perú",
-    "discapacidad cognitiva educación Perú",
-    "discapacidad física educación Perú",
-    "discapacidad motora educación Perú",
-    "parálisis cerebral educación Perú",
-    "discapacidad múltiple educación Perú",
-    "multidiscapacidad educación Perú",
-    "discapacidad psicosocial educación Perú",
-    "salud mental educación inclusiva Perú",
-
-    # Familia, docentes, participación y transición
-    "familias discapacidad educación Perú",
-    "docentes educación inclusiva Perú",
-    "capacitación docente inclusión educativa Perú",
-    "convivencia escolar inclusión discapacidad Perú",
-    "participación de estudiantes con discapacidad Perú",
-    "transición a la vida adulta discapacidad Perú",
-    "vida independiente discapacidad Perú",
-    "habilidades adaptativas discapacidad Perú",
-    "autonomía estudiantes con discapacidad Perú",
-    "inserción laboral personas con discapacidad Perú",
-    "formación ocupacional discapacidad Perú",
+NOTICIAS = [
+    {
+        "titulo": "Elche pone en marcha su primera Escuela de Verano Inclusiva para niños de 5 a 12 años",
+        "fuente": "Cadena SER",
+        "fecha": "2026-07-06",
+        "categoria": "Inclusión y neurodiversidad",
+        "resumen": "Elche inauguró una escuela de verano inclusiva con actividades deportivas, artísticas y apoyos para niños con necesidades específicas y personas neurodivergentes. La experiencia se desarrolla hasta el 31 de julio y se plantea como piloto para futuras ediciones.",
+        "url": "https://cadenaser.com/comunitat-valenciana/2026/07/06/elche-pone-en-marcha-su-primera-escuela-de-verano-inclusiva-para-ninos-de-5-a-12-anos-radio-elche/",
+        "palabras": ["inclusión", "neurodiversidad", "actividades adaptadas", "participación"],
+    },
+    {
+        "titulo": "Personas con discapacidad de América Latina y el Caribe reclaman ser protagonistas del cambio",
+        "fuente": "El País - América Futura",
+        "fecha": "2026-06-10",
+        "categoria": "Derechos y participación",
+        "resumen": "La publicación resalta el enfoque de derechos de las personas con discapacidad y la necesidad de que participen en las decisiones que afectan su vida. El tema se vincula con accesibilidad, autonomía, educación, justicia y cambio cultural.",
+        "url": "https://elpais.com/america-futura/2026-06-10/las-personas-con-discapacidad-de-america-latina-y-el-caribe-reclaman-ser-protagonistas-del-cambio.html",
+        "palabras": ["discapacidad", "derechos", "participación", "América Latina"],
+    },
+    {
+        "titulo": "Huesca Más Inclusiva cumple diez años como proyecto de referencia en inclusión",
+        "fuente": "Cadena SER",
+        "fecha": "2026-06-08",
+        "categoria": "Accesibilidad e inclusión comunitaria",
+        "resumen": "El proyecto Huesca Más Inclusiva celebra diez años de trabajo colaborativo en accesibilidad, empleo, cultura, educación y sensibilización. La experiencia muestra cómo las alianzas entre instituciones y comunidad pueden sostener iniciativas inclusivas.",
+        "url": "https://cadenaser.com/aragon/2026/06/08/huesca-mas-inclusiva-cumple-diez-anos-consolidado-como-un-proyecto-de-referencia-en-la-provincia-y-con-proyeccion-de-futuro-radio-huesca/",
+        "palabras": ["accesibilidad", "inclusión social", "educación", "sensibilización"],
+    },
+    {
+        "titulo": "La Conferencia Iberoamericana de Educación acuerda una agenda común sobre IA y Formación Profesional",
+        "fuente": "El País",
+        "fecha": "2026-05-28",
+        "categoria": "Educación inclusiva y políticas públicas",
+        "resumen": "La XXIX Conferencia Iberoamericana de Educación aprobó una agenda común que incluye el uso ético de la inteligencia artificial, la formación profesional y la continuidad educativa. El acuerdo reafirma el compromiso regional con una educación inclusiva, equitativa y de calidad.",
+        "url": "https://elpais.com/espana/catalunya/2026-05-28/la-ministra-de-educacion-pide-en-barcelona-una-estrategia-conjunta-iberoamericana-para-los-desafios-en-ensenanza.html",
+        "palabras": ["educación inclusiva", "Iberoamérica", "políticas educativas", "IA"],
+    },
+    {
+        "titulo": "Dos docentes de Huesca son finalistas en un programa nacional por liderazgo e inclusión educativa",
+        "fuente": "Cadena SER",
+        "fecha": "2026-05-18",
+        "categoria": "Docencia e inclusión",
+        "resumen": "La primera edición del programa Docentes Referentes seleccionó a profesionales destacados por su liderazgo educativo y trabajo en educación inclusiva. La iniciativa busca visibilizar prácticas docentes con impacto positivo en el sistema educativo.",
+        "url": "https://cadenaser.com/aragon/2026/05/18/beatriz-serrano-del-ceip-montecorona-sabinanigo-y-nathalie-clavero-del-ceip-pirineos-pyrenees-huesca-finalistas-de-docentes-referentes-impulsado-por-fundacion-ibercaja-radio-huesca/",
+        "palabras": ["docentes", "educación inclusiva", "liderazgo educativo", "buenas prácticas"],
+    },
+    {
+        "titulo": "Dénia inicia la construcción del nuevo centro de educación especial Raquel Payà",
+        "fuente": "Cadena SER",
+        "fecha": "2026-04-29",
+        "categoria": "Educación especial y accesibilidad",
+        "resumen": "La colocación de la primera piedra del nuevo Centro de Educación Especial Raquel Payà marca el inicio de una infraestructura adaptada y accesible. El proyecto busca responder a necesidades históricas de estudiantes, familias y profesionales.",
+        "url": "https://cadenaser.com/comunitat-valenciana/2026/04/29/denia-coloca-la-primera-piedra-del-nuevo-raquel-paya-una-deuda-historica-con-la-educacion-especial-empieza-a-saldarse-radio-denia/",
+        "palabras": ["educación especial", "accesibilidad", "infraestructura educativa", "familias"],
+    },
 ]
-
-MAX_PER_QUERY = 3
-MAX_TOTAL = 60
-
-
-def clean_html(text: str) -> str:
-    text = html.unescape(text or "")
-    text = re.sub(r"<[^>]+>", " ", text)
-    text = text.replace("\xa0", " ")
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
-
-
-def norm(text: str) -> str:
-    return re.sub(r"[^a-z0-9]+", " ", (text or "").lower()).strip()
-
-
-def source_from_url(url: str) -> str:
-    try:
-        host = urllib.parse.urlparse(url).netloc.replace("www.", "")
-        return host or "Fuente externa"
-    except Exception:
-        return "Fuente externa"
-
-
-def parse_date(value: str) -> str:
-    if not value:
-        return ""
-    try:
-        return parsedate_to_datetime(value).date().isoformat()
-    except Exception:
-        return value[:10]
-
-
-def fetch_query(query: str):
-    rss = "https://news.google.com/rss/search?" + urllib.parse.urlencode({
-        "q": query,
-        "hl": "es-419",
-        "gl": "PE",
-        "ceid": "PE:es-419",
-    })
-    req = urllib.request.Request(rss, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=25) as response:
-        data = response.read()
-    root = ET.fromstring(data)
-    items = []
-    for item in root.findall(".//item")[:MAX_PER_QUERY]:
-        title = clean_html(item.findtext("title") or "")
-        link = item.findtext("link") or ""
-        pub_date = item.findtext("pubDate") or ""
-        desc = clean_html(item.findtext("description") or "")
-        source_el = item.find("source")
-        source = clean_html(source_el.text if source_el is not None and source_el.text else source_from_url(link))
-        if not title or not link:
-            continue
-        items.append({
-            "titulo": title,
-            "fuente": source,
-            "fecha": parse_date(pub_date),
-            "tema": query,
-            "resumen": desc[:240] if desc else "Noticia encontrada en Google News. Revisa el portal original para leer el contenido completo.",
-            "url": link,
-        })
-    return items
 
 
 def main():
-    seen_titles = set()
-    seen_urls = set()
-    seen_domains = set()
-    results = []
-
-    for query in QUERIES:
-        try:
-            for item in fetch_query(query):
-                title_key = norm(item["titulo"])
-                url_key = item["url"].split("?")[0].lower()
-                domain_key = source_from_url(item["url"]).lower()
-                if title_key in seen_titles or url_key in seen_urls:
-                    continue
-                if domain_key in seen_domains and len(results) >= 18:
-                    continue
-                seen_titles.add(title_key)
-                seen_urls.add(url_key)
-                seen_domains.add(domain_key)
-                results.append(item)
-                if len(results) >= MAX_TOTAL:
-                    break
-        except Exception as exc:
-            print(f"Error con consulta {query}: {exc}")
-        if len(results) >= MAX_TOTAL:
-            break
-
-    if not results:
-        results = [
-            {
-                "titulo": "Consulta sobre inclusión educativa en Google Noticias",
-                "fuente": "Google News",
-                "fecha": datetime.now(timezone.utc).date().isoformat(),
-                "tema": "inclusión educativa",
-                "resumen": "No se pudieron cargar noticias automáticamente. Usa este enlace para consultar noticias actuales sobre inclusión educativa.",
-                "url": "https://news.google.com/search?q=inclusi%C3%B3n%20educativa%20Per%C3%BA",
-            }
-        ]
-
     output = {
         "actualizado": datetime.now(timezone.utc).isoformat(),
-        "noticias": results,
+        "noticias": NOTICIAS,
     }
-    Path("noticias.json").write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    Path("noticias.json").write_text(
+        json.dumps(output, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
 
 if __name__ == "__main__":
