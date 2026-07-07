@@ -262,7 +262,7 @@ async function iniciarNotiinclusivo() {
     ajustarInterfazTiempo();
 
     const [manuales, rss] = await Promise.all([
-      cargarJson("data/noticias-curadas.json?v=" + Date.now()),
+      cargarJson("data/noticias.json?v=" + Date.now()),
       cargarJson("data/noticias-rss.json?v=" + Date.now())
     ]);
 
