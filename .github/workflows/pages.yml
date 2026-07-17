@@ -28,7 +28,7 @@ jobs:
       - name: Preparar sitio estático
         run: |
           mkdir -p _site
-          cp -r index.html blog-inclusivo assets .nojekyll _site/ 2>/dev/null || true
+          cp -r index.html estilos.css script.js blog-inclusivo assets .nojekyll _site/ 2>/dev/null || true
           cp -r patron-shipibo.png patron-shipibo.webp _site/ 2>/dev/null || true
 
       - name: Configurar Pages
