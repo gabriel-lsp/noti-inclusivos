@@ -1,0 +1,82 @@
+:root{
+  color-scheme:light;
+  --azul-900:#17324d;
+  --azul-700:#2f5f7d;
+  --verde-700:#1f6a5a;
+  --verde-100:#e5f3ef;
+  --arena-50:#faf9f6;
+  --tinta:#202c35;
+  --texto-suave:#5b6871;
+  --blanco:#ffffff;
+  --borde:#d7e0e5;
+  --sombra:0 16px 40px rgba(23,50,77,.09);
+  --radio:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{min-width:320px;margin:0;color:var(--tinta);background:var(--arena-50);font-family:Arial,Helvetica,sans-serif;line-height:1.7}
+a{color:var(--verde-700);text-underline-offset:3px}
+a:focus-visible{outline:3px solid #f0ad4e;outline-offset:3px}
+.salto-contenido{position:fixed;top:12px;left:12px;z-index:100;padding:10px 14px;color:#fff;background:var(--azul-900);border-radius:8px;transform:translateY(-160%);transition:transform .2s ease}
+.salto-contenido:focus{transform:translateY(0)}
+.cabecera{position:relative;overflow:hidden;padding:30px 18px 145px;color:#fff;background:radial-gradient(circle at 84% 70%,rgba(255,255,255,.11) 0 22%,transparent 23%),radial-gradient(circle at 86% 74%,rgba(255,255,255,.08) 0 36%,transparent 37%),linear-gradient(135deg,#0b3550 0%,#0f4f57 48%,#0f766e 100%)}
+.patron-portada{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:url("../../patron-shipibo.webp?v=4");background-repeat:repeat;background-size:320px auto;background-position:top left;opacity:.30;filter:saturate(1.15) contrast(1.08)}
+.cabecera .navegacion,.cabecera .portada{position:relative;z-index:1}
+.navegacion{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1120px;margin:0 auto;flex-wrap:wrap}
+.marca-institucional{display:inline-flex;align-items:center;gap:14px;max-width:min(560px,100%);color:#fff;text-decoration:none;font-weight:900}
+.marca-logo-superior{display:block;width:58px;height:58px;object-fit:contain;flex-shrink:0;padding:4px;background:rgba(255,255,255,.96);border-radius:18px;box-shadow:0 10px 24px rgba(0,0,0,.14)}
+.marca-texto-superior{display:block;padding-left:14px;border-left:2px solid rgba(255,255,255,.35);text-shadow:0 2px 4px rgba(0,0,0,.28)}
+.marca-modulo{display:block;margin:0 0 3px;color:#c9f7ee;font-size:.76rem;font-weight:900;line-height:1.15;letter-spacing:.16em;text-transform:uppercase}
+.marca-nombre-institucional{display:block;color:#fff;font-size:1.02rem;font-weight:900;line-height:1.2}
+.marca-detalle-institucional{display:block;margin-top:4px;color:rgba(255,255,255,.94);font-size:.88rem;font-weight:750;line-height:1.25}
+.enlaces-cabecera{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.enlace-cabecera{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 22px;color:#fff;border:1px solid rgba(255,255,255,.45);border-radius:999px;font-size:1rem;font-weight:800;text-decoration:none;background:rgba(255,255,255,.08);text-shadow:0 2px 4px rgba(0,0,0,.24)}
+.enlace-cabecera:hover{color:#fff;background:rgba(255,255,255,.16)}
+.portada{max-width:1120px;margin:70px auto 0}
+.etiqueta-superior{margin:0 0 14px;color:#c9f7ee;font-size:.86rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,.28)}
+.portada h1{max-width:900px;margin:0 0 22px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.5rem,5.8vw,4.15rem);font-weight:600;line-height:1.04;letter-spacing:-.04em;text-shadow:0 3px 5px rgba(0,0,0,.22)}
+.subtitulo{max-width:880px;margin:0;color:rgba(255,255,255,.96);font-size:1.22rem;line-height:1.65;text-shadow:0 2px 4px rgba(0,0,0,.28)}
+main{position:relative;z-index:2;width:min(980px,calc(100% - 40px));margin:-78px auto 70px}
+.articulo{padding:clamp(24px,5vw,54px);background:#fff;border:1px solid var(--borde);border-radius:24px;box-shadow:var(--sombra)}
+.encabezado-articulo{display:flex;justify-content:space-between;gap:18px;margin-bottom:30px;padding-bottom:22px;border-bottom:1px solid var(--borde);flex-wrap:wrap}
+.fecha,.categoria{margin:0;font-weight:800}
+.fecha{color:var(--azul-700)}
+.categoria{color:var(--verde-700)}
+.introduccion{margin-top:0;color:var(--azul-900);font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;line-height:1.6}
+.articulo section{margin-top:36px}
+h2{margin:0 0 14px;color:var(--azul-900);font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.5rem,3vw,2rem)}
+p{margin:0 0 18px}
+.destacado{margin:36px 0;padding:26px;background:var(--verde-100);border-left:6px solid var(--verde-700);border-radius:0 16px 16px 0}
+.destacado h2{font-size:1.45rem}
+.fuentes{padding:24px;background:#f4f7f8;border:1px solid var(--borde);border-radius:16px}
+.acciones{display:flex;justify-content:space-between;gap:14px;margin-top:38px;padding-top:24px;border-top:1px solid var(--borde);flex-wrap:wrap}
+.acciones a{display:inline-flex;padding:10px 16px;color:#fff;background:var(--azul-700);border-radius:999px;font-weight:800;text-decoration:none}
+footer{margin-top:56px;padding:44px clamp(20px,5vw,72px) 28px;color:#dbe9ee;background:var(--azul-900)}
+.footer-contenido{display:grid;grid-template-columns:1.2fr 1fr 1.25fr;gap:32px;max-width:1120px;margin:0 auto}
+.footer-bloque h2{margin:0 0 10px;color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:1rem}
+.footer-bloque p{margin:0;color:#dbe9ee;line-height:1.65}
+.footer-bloque a{color:#dbe9ee}
+.footer-identidad{display:flex;gap:16px;align-items:flex-start}
+.logo-footer{display:block;width:72px;max-width:72px;height:auto;max-height:72px;object-fit:contain;flex-shrink:0}
+.footer-final{max-width:1120px;margin:18px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.18)}
+.footer-final p{margin:0;color:#dbe9ee;font-size:.92rem}
+@media(max-width:900px){
+  .navegacion{align-items:flex-start;flex-direction:column}
+  .enlaces-cabecera{justify-content:flex-start}
+  .footer-contenido{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .cabecera{padding:26px 18px 116px}
+  .portada{margin-top:54px}
+  .marca-institucional{align-items:flex-start}
+  .marca-logo-superior{width:54px;height:54px}
+  .marca-nombre-institucional{font-size:.96rem}
+  .marca-detalle-institucional{font-size:.82rem}
+  .enlaces-cabecera{display:grid;width:100%;grid-template-columns:1fr}
+  .enlace-cabecera{width:100%}
+  main{width:min(100% - 24px,980px);margin-top:-58px}
+  .articulo{border-radius:18px}
+  .acciones{flex-direction:column}
+  .acciones a{justify-content:center}
+  .footer-identidad{flex-direction:column}
+}
