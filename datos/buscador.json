@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ni-inicio",
+    "titulo": "Notiinclusivo",
+    "modulo": "NI",
+    "categoria": "Noticias inclusivas",
+    "tipo": "Módulo",
+    "descripcion": "Blog noticiero con noticias, artículos y orientaciones sobre inclusión, accesibilidad y diversidad.",
+    "etiquetas": ["noticias", "inclusion", "articulos", "actualidad"],
+    "url": "https://crebe-ucayali.github.io/noti-inclusivos/",
+    "fechaActualizacion": "2026-07-23"
+  },
+  {
+    "id": "ni-blog",
+    "titulo": "Índice del Blog Inclusivo",
+    "modulo": "NI",
+    "categoria": "Blog",
+    "tipo": "Índice de publicaciones",
+    "descripcion": "Consulta el índice completo de artículos y publicaciones de Notiinclusivo.",
+    "etiquetas": ["blog", "articulos", "publicaciones"],
+    "url": "https://crebe-ucayali.github.io/noti-inclusivos/blog/",
+    "fechaActualizacion": "2026-07-23"
+  },
+  {
+    "id": "ni-neurodiversidad",
+    "titulo": "Neurodiversidad: del reconocimiento a los apoyos",
+    "modulo": "NI",
+    "categoria": "Neurodiversidad",
+    "tipo": "Artículo",
+    "descripcion": "Lectura sobre diferencias neurológicas, apoyos, barreras y entornos inclusivos.",
+    "etiquetas": ["neurodiversidad", "autismo", "apoyos", "barreras"],
+    "url": "https://crebe-ucayali.github.io/noti-inclusivos/blog/13-julio-2026/",
+    "fechaActualizacion": "2026-07-13"
+  },
+  {
+    "id": "ni-down-bioetica",
+    "titulo": "Síndrome de Down, ciencia y bioética",
+    "modulo": "NI",
+    "categoria": "Ciencia y bioética",
+    "tipo": "Artículo",
+    "descripcion": "Análisis sobre avances genéticos, dignidad, diversidad, seguridad e inclusión.",
+    "etiquetas": ["sindrome de down", "genetica", "bioetica", "dignidad"],
+    "url": "https://crebe-ucayali.github.io/noti-inclusivos/blog/7-julio-2026/",
+    "fechaActualizacion": "2026-07-07"
+  },
+  {
+    "id": "ni-transporte-autismo",
+    "titulo": "Accesibilidad para personas con autismo en el transporte terrestre",
+    "modulo": "NI",
+    "categoria": "Accesibilidad y discapacidad",
+    "tipo": "Artículo",
+    "descripcion": "Información sobre medidas de accesibilidad, seguridad y adecuación sensorial en el transporte.",
+    "etiquetas": ["autismo", "transporte", "accesibilidad", "sensorial"],
+    "url": "https://crebe-ucayali.github.io/noti-inclusivos/blog/15-junio-2026/",
+    "fechaActualizacion": "2026-06-15"
+  }
+]
